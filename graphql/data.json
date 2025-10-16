@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doer",
+      "email": "john@example.com",
+      "age": 30
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "age": 25
+    },
+    {
+      "id": 3,
+      "name": "Joy Pejoy",
+      "email": "joypejoy@example.com",
+      "age": 45
+    }
+  ],
+  "nextId": 4
+}

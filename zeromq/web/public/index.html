@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroMQ Web Client</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ZeroMQ Web Client</h1>
+            <p>Choose between Pub/Sub Chat or Request/Reply services</p>
+        </header>
+
+        <div class="service-selector">
+            <button id="pubsubBtn" class="service-btn">
+                Pub/Sub Chat
+            </button>
+            <button id="reqreplyBtn" class="service-btn">
+                Request/Reply
+            </button>
+        </div>
+
+        <!-- ANCHOR Pub/Sub Service Interface -->
+        <div id="pubsubService" class="service-panel">
+            <h2>Pub/Sub Chat Service</h2>
+            <div class="chat-section">
+                <div class="input-group">
+                    <input type="text" id="clientName" placeholder="Enter your name" value="WebUser">
+                    <button id="joinChatBtn">Join Chat</button>
+                    <button id="leaveChatBtn" disabled>Leave Chat</button>
+                </div>
+                
+                <div class="chat-container">
+                    <div id="chatMessages" class="chat-messages"></div>
+                </div>
+                
+                <div class="input-group">
+                    <input type="text" id="messageInput" placeholder="Type your message..." disabled>
+                    <button id="sendMessageBtn" disabled>Send</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ANCHOR Request/Reply Service Interface -->
+        <div id="reqreplyService" class="service-panel">
+            <h2>Request/Reply Service</h2>
+            <div class="request-section">
+                <div class="preset-buttons">
+                    <button class="preset-btn" data-service="echo" data-message="Hello World!">
+                        Say Hello
+                    </button>
+                    <button class="preset-btn" data-service="time" data-message="">
+                        Get Time
+                    </button>
+                    <button class="preset-btn" data-service="ping" data-message="ping">
+                        Ping
+                    </button>
+                </div>
+                
+                <div class="custom-request">
+                    <h3>Custom Request</h3>
+                    <div class="input-group">
+                        <select id="serviceSelect">
+                            <option value="echo">Echo Service</option>
+                            <option value="time">Time Service</option>
+                            <option value="unknown">Unknown Service</option>
+                        </select>
+                        <input type="text" id="customMessage" placeholder="Enter your message">
+                        <button id="sendRequestBtn">Send Request</button>
+                    </div>
+                </div>
+                
+                <div class="response-container">
+                    <h3>Responses</h3>
+                    <div id="responseList" class="response-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
